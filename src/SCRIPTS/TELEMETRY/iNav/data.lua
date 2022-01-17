@@ -107,6 +107,7 @@ local data = {
 	--msg = m + i * 0.1 < 2.2 and "OpenTX v2.2+ Required" or false,
 	lastLock = { lat = 0, lon = 0 },
 	fUnit = {"mAh", "mWh"},
+	speed3d = 0,
 }
 
 function data.RGB(r, g, b)
