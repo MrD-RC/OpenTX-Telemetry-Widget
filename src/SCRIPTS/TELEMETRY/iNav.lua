@@ -325,6 +325,12 @@ function inav.background()
 			data.gpsHome = false
 			data.headingRef = data.heading
 		end
+		if config[35].v > 0 then -- Airframe Overspeed alert
+			calc3DSpeed()
+			if data.speed3D > config[36].v then
+				playAudio("ovrspd")
+			end
+		end
 		if data.altitude + 0.5 >= config[6].v and config[12].v > 0 then -- Altitude alert
 			if getTime() > data.altNextPlay then
 				if config[4].v > 0 then
