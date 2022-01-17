@@ -91,6 +91,14 @@ local function calcDir(r1, r2, r3, x, y, r)
 	return x1, y1, x2, y2, x3, y3
 end
 
+local function calc3DSpeed()
+	if data.pitot ~= nil then
+		data.speed3D = data.pitot
+	else
+		data.speed3D = math.abs(math.sqrt(data.speed^2 + data.vspeed^2))
+	end
+end
+
 local function endLog()
 	playLog = nil
 	collectgarbage()
