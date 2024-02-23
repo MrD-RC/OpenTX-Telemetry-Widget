@@ -3,7 +3,7 @@
 
 local zone, options = ...
 local VERSION = "2.2.3"
-local FILE_PATH = "/SCRIPTS/TELEMETRY/iNav/"
+local FILE_PATH = "/SCRIPTS/INAV/INAV/"
 local SMLCD = LCD_W < 212
 local HORUS = LCD_W >= 480 or LCD_H >= 480
 local tmp, view, lang, playLog
@@ -36,11 +36,6 @@ data.etx = osname ~= nil and osname == "EdgeTX"
 loadScript(FILE_PATH .. "load" .. ext, env)(config, data, FILE_PATH)
 collectgarbage()
 
---[[ Simulator language testing
-data.lang = "ro"
-data.voice = "ro"
-]]
-
 if data.lang ~= "en" or data.voice ~= "en" then
 	lang = loadScript(FILE_PATH .. "lang" .. ext, env)(modes, labels, data, FILE_PATH, env)
 	collectgarbage()
@@ -51,7 +46,6 @@ collectgarbage()
 
 local crsf, elrs, distCalc = loadScript(FILE_PATH .. "other" .. ext, env)(config, data, units, getTelemetryId, getTelemetryUnit, FILE_PATH, env, SMLCD)
 collectgarbage()
-
 
 local title, gpsDegMin, hdopGraph, icons, rect = loadScript(FILE_PATH .. "func_" .. (HORUS and "h" or "t") .. ext, env)(config, data, modes, dir, SMLCD, FILE_PATH, text, line, rect, fill, frmt, options)
 collectgarbage()

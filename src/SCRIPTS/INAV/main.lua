@@ -5,15 +5,15 @@ local options = {
 	{ "Warning", COLOR, YELLOW}
 }
 
-local TELE_PATH = "/SCRIPTS/TELEMETRY/"
+local TELE_PATH = "/SCRIPTS/INAV/"
 local v, r, m, i, e = getVersion()
 if string.sub(r, -4) == "simu" then
-   loadScript(TELE_PATH .. "iNav", "bt")(zone, options)
+   loadScript(TELE_PATH .. "INAV", "bt")(zone, options)
 end
 
 -- Run once at the creation of the widget
 local function create(zone, options)
-   local iNav = loadScript(TELE_PATH .. "iNav","bt")(zone, options)
+   local iNav = loadScript(TELE_PATH .. "INAV","bt")(zone, options)
    iNav.background()
    return iNav
 end
@@ -34,7 +34,7 @@ local function background(widget)
 end
 
 return {
-  name = "iNav",
+  name = "INAV",
   create = create,
   refresh = refresh,
   options = options,
